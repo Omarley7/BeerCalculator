@@ -1,16 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BeerTab9001
+namespace BeerTab9002
 {
     class Tab
     {
-        List<Alcoholic> alcoholicList;
+        List<Alcoholic> alcoholics;
         List<string> house;
+        public double BeerPrice { get; set; }
 
-        public Tab()
+        public Tab(double bPrice)
         {
-            alcoholicList = new List<Alcoholic>();
+            BeerPrice = bPrice;
+            alcoholics = new List<Alcoholic>();
             house = new List<string>();
             house.Add("Mathias");
             house.Add("Christine");
@@ -18,42 +23,54 @@ namespace BeerTab9001
             house.Add("Karim");
         }
 
-        public void Guests()
+        public void AddGuest(int beers, string name)
         {
-            int no = UI.GetNumberOfPeps();
-            for (int i = 0; i < no; i++)
+            double bill = beers * BeerPrice;
+            alcoholics.Add(new Alcoholic(name, beers, bill));
+        }
+
+        public void AddHouse()
+        {
+            foreach (string houseP in house)
             {
-                UI.Progress(i + 1, no);
-                alcoholicList.Add(UI.GetPersonInfo());
+                alcoholics.Add(new Alcoholic(houseP));
             }
         }
 
-        public void HouseMode()
+        public bool UpdateAlcoholic(int i, int beers)
         {
-            int i = 0;
-            foreach (string p in house)
-            {
-                UI.Progress(++i, house.Count());
-                alcoholicList.Add(new Alcoholic(p, UI.GetBeers(p)));
-            }
+            if (i >= alcoholics.Count)
+                return false;
+
+            alcoholics[i].BeerCount = beers;
+            alcoholics[i].Bill = beers * BeerPrice;
+            return true;
         }
 
-        public void CloseTab()
+        //Retruns [0] total price and [1] total beers
+        public double[] CloseTab()
         {
-            double total = 0;
-            int beerCount = + 0;
-            foreach (var p in alcoholicList)
+            double[] tab = { 0, 0 };
+            foreach (var dranker in alcoholics)
             {
-                p.Bill = BeerPrice * p.BeerCount;
-                UI.PrintBill(p);
-                total += p.Bill;
-                beerCount += p.BeerCount;
+                tab[0] += dranker.Bill;
+                tab[1] += dranker.BeerCount;
             }
-            UI.PrintTotal(total, beerCount);
-
+            return tab;
         }
 
-        public double BeerPrice { get; set; }
+        public string GetAlcoholicName(int i)
+        {
+            return (i < alcoholics.Count) ? alcoholics[i].Name : "N/A";
+        }
 
+        //returns [0]bill and [1]number of beers.
+        public double[] GetAlcoholicNumbers(int i)
+        {
+            if (i < alcoholics.Count)
+                return new double[] { alcoholics[i].Bill, alcoholics[i].BeerCount };
+
+            return new double[] { 0, 0 };
+        }
     }
 }

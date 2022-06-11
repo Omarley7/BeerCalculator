@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BeerTab9001
+namespace BeerTab9002
 {
     public static class UI
     {
@@ -10,7 +10,7 @@ namespace BeerTab9001
             Console.WriteLine("---Beer calculator 9001 Pro Plus Max XL QuadS---");
         }
 
-        internal static double GetBeerPrice()
+        public static double GetBeerPrice()
         {
             Console.Write("Input current beer price: ");
             double price = GetPositiveDouble("You don't get paid for drinking!");
@@ -46,12 +46,19 @@ namespace BeerTab9001
                 input = Console.ReadLine();
             }
         }
-        internal static void PrintBill(Alcoholic p)
+
+        public static int GetActualBeerCount()
         {
-            Console.WriteLine(String.Format("{0,-25} {1:C} for {2} beers", $"{p.Name} owes", p.Bill, p.BeerCount));
+            Console.WriteLine("How many beers did you actually drink?");
+            return GetPositiveInt("Just a whole positive number please");
         }
 
-        internal static void PrintTotal(double total, int beerCount)
+        public static void PrintBill(string Name, double Bill, int BeerCount)
+        {
+            Console.WriteLine(String.Format("{0,-25} {1:C} for {2} beers", $"{Name} owes", Bill, BeerCount));
+        }
+
+        public static void PrintTotal(double total, int beerCount)
         {
             Console.WriteLine();
             Console.WriteLine("Gives a total of {0,2:C} in {1} beers", total, beerCount);
@@ -60,30 +67,22 @@ namespace BeerTab9001
 
        
 
-        public static Alcoholic GetPersonInfo()
+        public static int GetPersonInfo(out string name)
         {
             Console.WriteLine("You are about to add a person:");
             while (true)
             {
                 Console.Write("Enter name: ");
-                string name = Console.ReadLine();
-
+                name = Console.ReadLine();
                 int beers = GetBeers(name);
 
                 Console.WriteLine("Is information above corret? Y/N");
-
                 string input = Console.ReadLine();
                 if (input.ToUpper() == "Y")
-                {
-                    Alcoholic dranker = new Alcoholic(name, beers);
-                    Console.Clear();
-                    return dranker;
-                }
+                    return beers;
 
-                else if (input.ToUpper() == "N")
-                {
+                else
                     Console.WriteLine("Okay, starting over");
-                }
             }
         }
 

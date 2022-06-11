@@ -1,0 +1,16 @@
+C:\Users\Omar\source\repos\BeerTab9002\bin\Debug\net5.0\BeerTab9002.exe
+C:\Users\Omar\source\repos\BeerTab9002\bin\Debug\net5.0\BeerTab9002.deps.json
+C:\Users\Omar\source\repos\BeerTab9002\bin\Debug\net5.0\BeerTab9002.runtimeconfig.json
+C:\Users\Omar\source\repos\BeerTab9002\bin\Debug\net5.0\BeerTab9002.runtimeconfig.dev.json
+C:\Users\Omar\source\repos\BeerTab9002\bin\Debug\net5.0\BeerTab9002.dll
+C:\Users\Omar\source\repos\BeerTab9002\bin\Debug\net5.0\ref\BeerTab9002.dll
+C:\Users\Omar\source\repos\BeerTab9002\bin\Debug\net5.0\BeerTab9002.pdb
+C:\Users\Omar\source\repos\BeerTab9002\obj\Debug\net5.0\BeerTab9002.csprojAssemblyReference.cache
+C:\Users\Omar\source\repos\BeerTab9002\obj\Debug\net5.0\BeerTab9002.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Omar\source\repos\BeerTab9002\obj\Debug\net5.0\BeerTab9002.AssemblyInfoInputs.cache
+C:\Users\Omar\source\repos\BeerTab9002\obj\Debug\net5.0\BeerTab9002.AssemblyInfo.cs
+C:\Users\Omar\source\repos\BeerTab9002\obj\Debug\net5.0\BeerTab9002.csproj.CoreCompileInputs.cache
+C:\Users\Omar\source\repos\BeerTab9002\obj\Debug\net5.0\BeerTab9002.dll
+C:\Users\Omar\source\repos\BeerTab9002\obj\Debug\net5.0\ref\BeerTab9002.dll
+C:\Users\Omar\source\repos\BeerTab9002\obj\Debug\net5.0\BeerTab9002.pdb
+C:\Users\Omar\source\repos\BeerTab9002\obj\Debug\net5.0\BeerTab9002.genruntimeconfig.cache
